@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:3000
+
+### Health
+GET {{baseUrl}}/health
+
+
+### Create account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "userId": "user-1",
+  "accountType": "CHECKING",
+  "currency": "USD"
+}
+
+
+### Create account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "userId": "user-2",
+  "accountType": "CHECKING",
+  "currency": "USD"
+}
+
+### Get account with balance
+GET {{baseUrl}}/accounts/d7e03e98-8eb9-4bd3-bf1a-3411585b547b
+
+
+### Get account ledger
+GET {{baseUrl}}/accounts/d7e03e98-8eb9-4bd3-bf1a-3411585b547b/ledger
+
+
+### Deposit
+POST {{baseUrl}}/deposits
+Content-Type: application/json
+
+{
+  "accountId": "d7e03e98-8eb9-4bd3-bf1a-3411585b547b",
+  "amount": 1000
+}
+
+
+### Withdrawal
+POST {{baseUrl}}/withdrawals
+Content-Type: application/json
+
+{
+  "accountId": "d7e03e98-8eb9-4bd3-bf1a-3411585b547b",
+  "amount": 200
+}
+
+### Transfer
+POST {{baseUrl}}/transfers
+Content-Type: application/json
+
+{
+  "sourceAccountId": "d7e03e98-8eb9-4bd3-bf1a-3411585b547b",
+  "destinationAccountId": "77c5e81f-8e4f-47e3-8424-9c38095c336a",
+  "amount": 500
+}
